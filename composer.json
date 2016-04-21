@@ -1,6 +1,6 @@
 {
     "name": "pisc/laravel-database-debug",
-    "description": "Array class for PHP",
+    "description": "Laravel Database Debug functions",
     "license": "MIT",
     "authors": [
         {
