@@ -5,6 +5,7 @@ namespace pisc\LaravelDBDebug;
 require_once __DIR__ . '/helper.php';
 
 use DB;
+use DateTime;
 
 class DBDebug {
 
