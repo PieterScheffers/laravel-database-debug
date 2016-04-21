@@ -6,6 +6,11 @@ require_once __DIR__ . '/helper.php';
 
 use DB;
 use DateTime;
+use Closure;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Support\Collection;
 
 class DBDebug {
 
@@ -22,17 +27,17 @@ class DBDebug {
 	 */
 	public static function getSql($query)
 	{
-		if( $query instanceof Illuminate\Database\Eloquent\Relations\Relation )
+		if( $query instanceof Relation )
 		{
 			$query = $query->getBaseQuery();
 		}
 
-		if( $query instanceof Illuminate\Database\Eloquent\Builder )
+		if( $query instanceof EloquentBuilder )
 		{
 			$query = $query->getQuery();
 		}
 
-		if( $query instanceof Illuminate\Database\Query\Builder )
+		if( $query instanceof QueryBuilder )
 		{
 			return [ 'query' => $query->toSql(), 'bindings' => $query->getBindings() ];
 		}
@@ -69,7 +74,7 @@ class DBDebug {
 		$lastQuery = static::getSql($query);
 
 		// Get querylog
-		$queries = new Illuminate\Support\Collection( DB::getQueryLog() );
+		$queries = new Collection( DB::getQueryLog() );
 
 		// calculate the number of queries done in callback
 		$queryCount = $queries->count() - $numberOfQueries;
@@ -104,7 +109,7 @@ class DBDebug {
 	 */
 	public static function constructQueries($queries)
 	{
-		if( $queries instanceof Illuminate\Support\Collection )
+		if( $queries instanceof Collection )
 		{
 			$queries = $queries->all();
 		}
