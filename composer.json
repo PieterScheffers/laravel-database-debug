@@ -1,0 +1,23 @@
+{
+    "name": "pisc/laravel-database-debug",
+    "description": "Array class for PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pieter Scheffers",
+            "email": "info@pieterscheffers.nl",
+            "homepage": "https://www.pieterscheffers.nl",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/PieterScheffers/laravel-database-debug/issues",
+        "wiki": "https://github.com/PieterScheffers/laravel-database-debug/wiki",
+        "source": "https://github.com/PieterScheffers/laravel-database-debug"
+    },
+    "autoload": {
+        "psr-4": {
+            "pisc\\LaravelDBDebug\\": "src/"
+        }
+    }
+}
